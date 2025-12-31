@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
-  background:#fdf6e3 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  background:#efe6d8;
   font-family:'Playfair Display',serif;
   display:flex;
   align-items:center;
@@ -28,22 +29,21 @@ body{
 .page{
   position:absolute;
   inset:0;
-  background:#fffdf6;
-  border-radius:12px;
+  background:#fffdf8;
+  border-radius:14px;
   box-shadow:
-    0 12px 25px rgba(0,0,0,0.15),
+    0 20px 40px rgba(120,80,40,.25),
     inset 0 0 0 1px #e0d2bd;
   padding:45px;
   opacity:0;
-  transform:scale(.97) rotate(-0.2deg);
+  transform:scale(.96);
   transition:.6s ease;
   color:#4b2e1e;
-  overflow:hidden;
 }
 
 .page.active{
   opacity:1;
-  transform:scale(1) rotate(0deg);
+  transform:scale(1);
   z-index:5;
 }
 
@@ -70,7 +70,7 @@ p{
   border-radius:50%;
   overflow:hidden;
   margin:25px auto;
-  border:5px dashed #c7a17a;
+  border:5px solid #c7a17a;
 }
 .photo img{
   width:100%;
@@ -91,8 +91,8 @@ p{
   height:160px;
   object-fit:cover;
   border-radius:12px;
-  border:3px dashed #d4b18c;
-  box-shadow:0 6px 14px rgba(120,80,40,.15);
+  border:3px solid #d4b18c;
+  box-shadow:0 8px 18px rgba(120,80,40,.25);
 }
 
 /* Letter */
@@ -101,28 +101,6 @@ p{
   line-height:1.9;
   white-space:pre-wrap;
   text-align:left;
-  font-family:'Dancing Script',cursive;
-  position:relative;
-}
-
-/* Stickers (cut-out love doodles) */
-.sticker{
-  position:absolute;
-  width:50px;
-  height:50px;
-  pointer-events:none;
-  animation: float 3s ease-in-out infinite alternate;
-}
-
-.sticker1{ top:20px; left:15px; }
-.sticker2{ top:80px; right:25px; }
-.sticker3{ bottom:50px; left:60px; }
-.sticker4{ bottom:30px; right:50px; }
-
-@keyframes float{
-  0%{ transform: translateY(0) rotate(0deg);}
-  50%{ transform: translateY(-6px) rotate(5deg);}
-  100%{ transform: translateY(0) rotate(-3deg);}
 }
 
 .signature{
@@ -144,26 +122,6 @@ p{
 </head>
 
 <body>
-  <!-- Example stickers on Page 3 -->
-<div class="page">
-  <h2>Our Little Memories 🤍</h2>
-  <p>Moments I want to keep forever…</p>
-
-  <div class="gallery">
-    <img src="pic1.jpg" alt="Memory 1">
-    <img src="pic2.jpg" alt="Memory 2">
-    <img src="pic3.jpg" alt="Memory 3">
-    <img src="pic4.jpg" alt="Memory 4">
-  </div>
-
-  <!-- Stickers -->
-  <img src="https://img.icons8.com/emoji/48/000000/red-heart.png" class="sticker sticker1">
-  <img src="https://img.icons8.com/emoji/48/000000/heart-with-arrow.png" class="sticker sticker2">
-  <img src="https://img.icons8.com/emoji/48/000000/sparkling-heart.png" class="sticker sticker3">
-  <img src="https://img.icons8.com/emoji/48/000000/purple-heart.png" class="sticker sticker4">
-
-  <div class="tap">Tap gently 🤎</div>
-</div>
 
 <div class="book" onclick="nextPage()">
 
@@ -192,7 +150,19 @@ p{
   </div>
 
   <!-- Page 3 – NEW PICTURE SEGMENT -->
+  <div class="page">
+    <h2>Our Little Memories 🤍</h2>
+    <p>Moments I want to keep forever…</p>
 
+    <div class="gallery">
+      <img src="pic1.jpg" alt="Memory 1">
+      <img src="pic2.jpg" alt="Memory 2">
+      <img src="pic3.jpg" alt="Memory 3">
+      <img src="pic4.jpg" alt="Memory 4">
+    </div>
+
+    <div class="tap">Tap gently 🤎</div>
+  </div>
 
   <!-- Page 4 -->
   <div class="page">

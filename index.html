@@ -1,3 +1,31 @@
+<script>
+const pages = document.querySelectorAll('.page');
+let index = 0;
+let typed = false;
+
+function nextPage(){
+  const current = pages[index];
+  current.classList.add('flip-out');
+
+  setTimeout(() => {
+    current.classList.remove('active','flip-out');
+
+    index = (index + 1) % pages.length;
+    const next = pages[index];
+
+    next.classList.add('active','flip-in');
+
+    setTimeout(() => {
+      next.classList.remove('flip-in');
+    }, 800);
+
+    if(index === pages.length - 1 && !typed){
+      typeWriter();
+      typed = true;
+    }
+  }, 400);
+}
+</script>
 <!DOCTYPE html>  <html lang="en">  
 <head>  
 <meta charset="UTF-8">  

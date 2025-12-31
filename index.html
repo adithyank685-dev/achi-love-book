@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Achi 🤍 – Love, Adithyan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  background:#efe6d8;
+  font-family:'Playfair Display',serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+.book{
+  width:90%;
+  max-width:720px;
+  height:540px;
+  position:relative;
+  cursor:pointer;
+}
+
+.page{
+  position:absolute;
+  inset:0;
+  background:#fffdf8;
+  border-radius:14px;
+  box-shadow:
+    0 20px 40px rgba(120,80,40,.25),
+    inset 0 0 0 1px #e0d2bd;
+  padding:45px;
+  opacity:0;
+  transform:scale(.96);
+  transition:.6s ease;
+  color:#4b2e1e;
+}
+
+.page.active{
+  opacity:1;
+  transform:scale(1);
+  z-index:5;
+}
+
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:3rem;
+  color:#7a4a2e;
+}
+
+h2{
+  font-family:'Dancing Script',cursive;
+  color:#8b5a3c;
+}
+
+p{
+  font-size:1.2rem;
+  line-height:1.8;
+}
+
+/* Single photo */
+.photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:25px auto;
+  border:5px solid #c7a17a;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Picture gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  border:3px solid #d4b18c;
+  box-shadow:0 8px 18px rgba(120,80,40,.25);
+}
+
+/* Letter */
+.letter{
+  font-size:1.1rem;
+  line-height:1.9;
+  white-space:pre-wrap;
+  text-align:left;
+}
+
+.signature{
+  margin-top:25px;
+  font-family:'Dancing Script',cursive;
+  font-size:2.2rem;
+  color:#7a4a2e;
+}
+
+.tap{
+  position:absolute;
+  bottom:15px;
+  width:100%;
+  text-align:center;
+  font-size:.9rem;
+  color:#9b7a5f;
+}
+</style>
+</head>
+
+<body>
+
+<div class="book" onclick="nextPage()">
+
+  <!-- Page 1 -->
+  <div class="page active">
+    <h1>Happy New Year, Achi 🤍</h1>
+    <p>
+      A fresh year.<br>
+      A soft beginning.<br><br>
+      And my favorite story still starts with <b>you</b>.
+    </p>
+    <div class="tap">Tap anywhere 🤎</div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page">
+    <div class="photo">
+      <img src="achi.jpg" alt="Achi">
+    </div>
+    <p>
+      In every quiet moment,<br>
+      in every simple day,<br>
+      you are my peace.
+    </p>
+    <div class="tap">Tap to continue 📖</div>
+  </div>
+
+  <!-- Page 3 – NEW PICTURE SEGMENT -->
+  <div class="page">
+    <h2>Our Little Memories 🤍</h2>
+    <p>Moments I want to keep forever…</p>
+
+    <div class="gallery">
+      <img src="pic1.jpg" alt="Memory 1">
+      <img src="pic2.jpg" alt="Memory 2">
+      <img src="pic3.jpg" alt="Memory 3">
+      <img src="pic4.jpg" alt="Memory 4">
+    </div>
+
+    <div class="tap">Tap gently 🤎</div>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page">
+    <h2>This book is written with…</h2>
+    <p>
+      Warm smiles ✨<br>
+      Late night talks 🌙<br>
+      And a love that feels like home 🤍
+    </p>
+    <div class="tap">One more tap 📜</div>
+  </div>
+
+  <!-- Page 5 – LAST PAGE LETTER -->
+  <div class="page">
+    <div class="letter" id="typedText"></div>
+
+    <div class="signature">
+      With all my love,<br>
+      Adithyan 🤍
+    </div>
+    <div class="tap">End of our page 🤍</div>
+  </div>
+
+</div>
+
+<script>
+const pages=document.querySelectorAll('.page');
+let index=0;
+let typed=false;
+
+function nextPage(){
+  pages[index].classList.remove('active');
+  index=(index+1)%pages.length;
+  pages[index].classList.add('active');
+
+  if(index===pages.length-1 && !typed){
+    typeWriter();
+    typed=true;
+  }
+}
+</script>
+
+<script>
+const text=`Dear Achi,
+
+As this New Year begins,
+I want you to know how deeply you matter to me.
+
+Life feels softer,
+days feel warmer,
+and dreams feel closer
+because you are beside me.
+
+This year,
+I wish for more quiet moments with you,
+more shared smiles,
+and a love that keeps growing.
+
+I promise —
+to choose you,
+every single day. 🤍`;
+
+let i=0;
+function typeWriter(){
+  if(i<text.length){
+    document.getElementById("typedText").innerHTML+=
+      text.charAt(i)==="\n"?"<br>":text.charAt(i);
+    i++;
+    setTimeout(typeWriter,45);
+  }
+}
+</script>
+
+</body>
+</html>
